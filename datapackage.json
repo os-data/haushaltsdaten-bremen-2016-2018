@@ -1,0 +1,714 @@
+{
+  "@context": "http://schemas.frictionlessdata.io/fiscal-data-package.jsonld",
+  "author": "Offener Haushalt <offenerhaushaltupload@gmail.com>",
+  "bytes": 53616152,
+  "cityCode": "Bremen",
+  "count_of_rows": 414775,
+  "countryCode": "DE",
+  "description": "Zur Verfügung gestellt werden die kameralen Haushaltsdaten der Freien Hansestadt Bremen, genauer des Landes und der Stadtgemeinde Bremen, für die Haushaltsjahre 2016, 2017 sowie 2018.\nDie Stadt Bremerhaven erstellt einen eigenen Haushaltsplan, der von der Stadtverordnetenversammlung beschlossen wird.\nWeitere Informationen zu den einzelnen Haushaltsplänen der Hansestadt Bremen finden sich im Transparenzportal Bremen unter http://transparenz.bremen.de/",
+  "fiscalPeriod": {
+    "end": "2018-12-31",
+    "start": "2016-01-01"
+  },
+  "hash": "0ed87c7980f82a1623005c83abf5966a",
+  "model": {
+    "dimensions": {
+      "administrative-classification": {
+        "attributes": {
+          "produkt": {
+            "labelfor": "produktid",
+            "source": "produkt",
+            "title": "Produkt"
+          },
+          "produktbereich": {
+            "labelfor": "produktbereichid",
+            "source": "produktbereich",
+            "title": "Produktbereich"
+          },
+          "produktbereichid": {
+            "parent": "produktplanid",
+            "source": "produktbereichid",
+            "title": "ProduktbereichID"
+          },
+          "produktid": {
+            "parent": "produktbereichid",
+            "source": "produktid",
+            "title": "ProduktID"
+          },
+          "produktplan": {
+            "labelfor": "produktplanid",
+            "source": "produktplan",
+            "title": "Produktplan"
+          },
+          "produktplanid": {
+            "source": "produktplanid",
+            "title": "ProduktplanID"
+          }
+        },
+        "classificationType": "administrative",
+        "dimensionType": "classification",
+        "primaryKey": [
+          "produktplanid",
+          "produktbereichid",
+          "produktid"
+        ]
+      },
+      "budget-line-id": {
+        "attributes": {
+          "postenid": {
+            "source": "postenid",
+            "title": "PostenID"
+          }
+        },
+        "dimensionType": "fact",
+        "primaryKey": [
+          "postenid"
+        ]
+      },
+      "date": {
+        "attributes": {
+          "jahr": {
+            "source": "jahr",
+            "title": "Jahr"
+          }
+        },
+        "dimensionType": "datetime",
+        "primaryKey": [
+          "jahr"
+        ]
+      },
+      "direction": {
+        "attributes": {
+          "budget_richtung": {
+            "source": "budget_richtung",
+            "title": "Budget Richtung"
+          }
+        },
+        "dimensionType": "other",
+        "primaryKey": [
+          "budget_richtung"
+        ]
+      },
+      "fin-source": {
+        "attributes": {
+          "haushalt": {
+            "source": "haushalt",
+            "title": "Haushalt"
+          }
+        },
+        "dimensionType": "other",
+        "primaryKey": [
+          "haushalt"
+        ]
+      },
+      "value-kind": {
+        "attributes": {
+          "betrag_typ": {
+            "source": "betrag_typ",
+            "title": "Betrag_Typ"
+          }
+        },
+        "dimensionType": "other",
+        "primaryKey": [
+          "betrag_typ"
+        ]
+      }
+    },
+    "measures": {
+      "betrag": {
+        "source": "betrag",
+        "title": "Betrag"
+      }
+    }
+  },
+  "name": "bremen_data_2016_2017_2018",
+  "owner": "c06abbc1b9141b233de84e14f5ab0a75",
+  "profile": "data-package",
+  "profiles": {
+    "fiscal": "*",
+    "tabular": "*"
+  },
+  "promise": {
+    "_c": [],
+    "_d": true,
+    "_h": 0,
+    "_n": false,
+    "_s": 1
+  },
+  "regionCode": "eu",
+  "resources": [
+    {
+      "bytes": 40211895,
+      "count_of_rows": 248862,
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "/tmp/tmp_3qjbl_i/final/data/bremen_daten_2016_17_18.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "3b52631b494ef45e167d46fa0ebac5cb",
+      "mediatype": "text/csv",
+      "name": "bremen_daten_2016_17_18",
+      "path": "data/bremen_daten_2016_17_18.csv",
+      "profile": "data-resource",
+      "schema": {
+        "fields": [
+          {
+            "conceptType": "budget-line-id",
+            "format": "default",
+            "name": "postenid",
+            "osType": "budget-line-id",
+            "slug": "postenid",
+            "title": "PostenID",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produktplan",
+            "osType": "administrative-classification:generic:level1:label",
+            "slug": "produktplan",
+            "title": "Produktplan",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produktplanid",
+            "osType": "administrative-classification:generic:level1:code",
+            "slug": "produktplanid",
+            "title": "ProduktplanID",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produktbereich",
+            "osType": "administrative-classification:generic:level2:label",
+            "slug": "produktbereich",
+            "title": "Produktbereich",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produktbereichid",
+            "osType": "administrative-classification:generic:level2:code:part",
+            "slug": "produktbereichid",
+            "title": "ProduktbereichID",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produkt",
+            "osType": "administrative-classification:generic:level3:label",
+            "slug": "produkt",
+            "title": "Produkt",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produktid",
+            "osType": "administrative-classification:generic:level3:code:part",
+            "slug": "produktid",
+            "title": "ProduktID",
+            "type": "string"
+          },
+          {
+            "conceptType": "fin-source",
+            "format": "default",
+            "name": "haushalt",
+            "osType": "fin-source:generic:code",
+            "slug": "haushalt",
+            "title": "Haushalt",
+            "type": "string"
+          },
+          {
+            "conceptType": "value",
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "betrag",
+            "osType": "value",
+            "slug": "betrag",
+            "title": "Betrag",
+            "type": "number"
+          },
+          {
+            "conceptType": "value-kind",
+            "format": "default",
+            "name": "betrag_typ",
+            "osType": "value-kind:code",
+            "slug": "betrag_typ",
+            "title": "Betrag_Typ",
+            "type": "string"
+          },
+          {
+            "conceptType": "date",
+            "format": "default",
+            "name": "jahr",
+            "osType": "date:fiscal-year",
+            "slug": "jahr",
+            "title": "Jahr",
+            "type": "integer"
+          },
+          {
+            "conceptType": "direction",
+            "format": "default",
+            "name": "budget_richtung",
+            "osType": "direction",
+            "slug": "budget_richtung",
+            "title": "Budget Richtung",
+            "type": "string"
+          }
+        ],
+        "primaryKey": [
+          "postenid",
+          "produktplanid",
+          "produktbereichid",
+          "produktid",
+          "haushalt",
+          "betrag_typ",
+          "jahr",
+          "budget_richtung"
+        ]
+      }
+    },
+    {
+      "bytes": 18472137,
+      "count_of_rows": 114400,
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "/tmp/tmp_3qjbl_i/final/data/bremen_daten_2016_17_18__2016.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "084f60e6fd869bcebd430a5c4ef79460",
+      "mediatype": "text/csv",
+      "name": "bremen_daten_2016_17_18__2016",
+      "path": "data/bremen_daten_2016_17_18__2016.csv",
+      "profile": "data-resource",
+      "schema": {
+        "fields": [
+          {
+            "conceptType": "budget-line-id",
+            "format": "default",
+            "name": "postenid",
+            "osType": "budget-line-id",
+            "slug": "postenid",
+            "title": "PostenID",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produktplan",
+            "osType": "administrative-classification:generic:level1:label",
+            "slug": "produktplan",
+            "title": "Produktplan",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produktplanid",
+            "osType": "administrative-classification:generic:level1:code",
+            "slug": "produktplanid",
+            "title": "ProduktplanID",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produktbereich",
+            "osType": "administrative-classification:generic:level2:label",
+            "slug": "produktbereich",
+            "title": "Produktbereich",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produktbereichid",
+            "osType": "administrative-classification:generic:level2:code:part",
+            "slug": "produktbereichid",
+            "title": "ProduktbereichID",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produkt",
+            "osType": "administrative-classification:generic:level3:label",
+            "slug": "produkt",
+            "title": "Produkt",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produktid",
+            "osType": "administrative-classification:generic:level3:code:part",
+            "slug": "produktid",
+            "title": "ProduktID",
+            "type": "string"
+          },
+          {
+            "conceptType": "fin-source",
+            "format": "default",
+            "name": "haushalt",
+            "osType": "fin-source:generic:code",
+            "slug": "haushalt",
+            "title": "Haushalt",
+            "type": "string"
+          },
+          {
+            "conceptType": "value",
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "betrag",
+            "osType": "value",
+            "slug": "betrag",
+            "title": "Betrag",
+            "type": "number"
+          },
+          {
+            "conceptType": "value-kind",
+            "format": "default",
+            "name": "betrag_typ",
+            "osType": "value-kind:code",
+            "slug": "betrag_typ",
+            "title": "Betrag_Typ",
+            "type": "string"
+          },
+          {
+            "conceptType": "date",
+            "format": "default",
+            "name": "jahr",
+            "osType": "date:fiscal-year",
+            "slug": "jahr",
+            "title": "Jahr",
+            "type": "integer"
+          },
+          {
+            "conceptType": "direction",
+            "format": "default",
+            "name": "budget_richtung",
+            "osType": "direction",
+            "slug": "budget_richtung",
+            "title": "Budget Richtung",
+            "type": "string"
+          }
+        ],
+        "primaryKey": [
+          "postenid",
+          "produktplanid",
+          "produktbereichid",
+          "produktid",
+          "haushalt",
+          "betrag_typ",
+          "jahr",
+          "budget_richtung"
+        ]
+      }
+    },
+    {
+      "bytes": 18294544,
+      "count_of_rows": 113176,
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "/tmp/tmp_3qjbl_i/final/data/bremen_daten_2016_17_18__2017.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "2f523f9924f999cadffabb4fa8fdbd60",
+      "mediatype": "text/csv",
+      "name": "bremen_daten_2016_17_18__2017",
+      "path": "data/bremen_daten_2016_17_18__2017.csv",
+      "profile": "data-resource",
+      "schema": {
+        "fields": [
+          {
+            "conceptType": "budget-line-id",
+            "format": "default",
+            "name": "postenid",
+            "osType": "budget-line-id",
+            "slug": "postenid",
+            "title": "PostenID",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produktplan",
+            "osType": "administrative-classification:generic:level1:label",
+            "slug": "produktplan",
+            "title": "Produktplan",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produktplanid",
+            "osType": "administrative-classification:generic:level1:code",
+            "slug": "produktplanid",
+            "title": "ProduktplanID",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produktbereich",
+            "osType": "administrative-classification:generic:level2:label",
+            "slug": "produktbereich",
+            "title": "Produktbereich",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produktbereichid",
+            "osType": "administrative-classification:generic:level2:code:part",
+            "slug": "produktbereichid",
+            "title": "ProduktbereichID",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produkt",
+            "osType": "administrative-classification:generic:level3:label",
+            "slug": "produkt",
+            "title": "Produkt",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produktid",
+            "osType": "administrative-classification:generic:level3:code:part",
+            "slug": "produktid",
+            "title": "ProduktID",
+            "type": "string"
+          },
+          {
+            "conceptType": "fin-source",
+            "format": "default",
+            "name": "haushalt",
+            "osType": "fin-source:generic:code",
+            "slug": "haushalt",
+            "title": "Haushalt",
+            "type": "string"
+          },
+          {
+            "conceptType": "value",
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "betrag",
+            "osType": "value",
+            "slug": "betrag",
+            "title": "Betrag",
+            "type": "number"
+          },
+          {
+            "conceptType": "value-kind",
+            "format": "default",
+            "name": "betrag_typ",
+            "osType": "value-kind:code",
+            "slug": "betrag_typ",
+            "title": "Betrag_Typ",
+            "type": "string"
+          },
+          {
+            "conceptType": "date",
+            "format": "default",
+            "name": "jahr",
+            "osType": "date:fiscal-year",
+            "slug": "jahr",
+            "title": "Jahr",
+            "type": "integer"
+          },
+          {
+            "conceptType": "direction",
+            "format": "default",
+            "name": "budget_richtung",
+            "osType": "direction",
+            "slug": "budget_richtung",
+            "title": "Budget Richtung",
+            "type": "string"
+          }
+        ],
+        "primaryKey": [
+          "postenid",
+          "produktplanid",
+          "produktbereichid",
+          "produktid",
+          "haushalt",
+          "betrag_typ",
+          "jahr",
+          "budget_richtung"
+        ]
+      }
+    },
+    {
+      "bytes": 16849447,
+      "count_of_rows": 104240,
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "/tmp/tmp_3qjbl_i/final/data/bremen_daten_2016_17_18__2018.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "cee71a1e598066b5acba72959d5ea916",
+      "mediatype": "text/csv",
+      "name": "bremen_daten_2016_17_18__2018",
+      "path": "data/bremen_daten_2016_17_18__2018.csv",
+      "profile": "data-resource",
+      "schema": {
+        "fields": [
+          {
+            "conceptType": "budget-line-id",
+            "format": "default",
+            "name": "postenid",
+            "osType": "budget-line-id",
+            "slug": "postenid",
+            "title": "PostenID",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produktplan",
+            "osType": "administrative-classification:generic:level1:label",
+            "slug": "produktplan",
+            "title": "Produktplan",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produktplanid",
+            "osType": "administrative-classification:generic:level1:code",
+            "slug": "produktplanid",
+            "title": "ProduktplanID",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produktbereich",
+            "osType": "administrative-classification:generic:level2:label",
+            "slug": "produktbereich",
+            "title": "Produktbereich",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produktbereichid",
+            "osType": "administrative-classification:generic:level2:code:part",
+            "slug": "produktbereichid",
+            "title": "ProduktbereichID",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produkt",
+            "osType": "administrative-classification:generic:level3:label",
+            "slug": "produkt",
+            "title": "Produkt",
+            "type": "string"
+          },
+          {
+            "conceptType": "administrative-classification",
+            "format": "default",
+            "name": "produktid",
+            "osType": "administrative-classification:generic:level3:code:part",
+            "slug": "produktid",
+            "title": "ProduktID",
+            "type": "string"
+          },
+          {
+            "conceptType": "fin-source",
+            "format": "default",
+            "name": "haushalt",
+            "osType": "fin-source:generic:code",
+            "slug": "haushalt",
+            "title": "Haushalt",
+            "type": "string"
+          },
+          {
+            "conceptType": "value",
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "betrag",
+            "osType": "value",
+            "slug": "betrag",
+            "title": "Betrag",
+            "type": "number"
+          },
+          {
+            "conceptType": "value-kind",
+            "format": "default",
+            "name": "betrag_typ",
+            "osType": "value-kind:code",
+            "slug": "betrag_typ",
+            "title": "Betrag_Typ",
+            "type": "string"
+          },
+          {
+            "conceptType": "date",
+            "format": "default",
+            "name": "jahr",
+            "osType": "date:fiscal-year",
+            "slug": "jahr",
+            "title": "Jahr",
+            "type": "integer"
+          },
+          {
+            "conceptType": "direction",
+            "format": "default",
+            "name": "budget_richtung",
+            "osType": "direction",
+            "slug": "budget_richtung",
+            "title": "Budget Richtung",
+            "type": "string"
+          }
+        ],
+        "primaryKey": [
+          "postenid",
+          "produktplanid",
+          "produktbereichid",
+          "produktid",
+          "haushalt",
+          "betrag_typ",
+          "jahr",
+          "budget_richtung"
+        ]
+      }
+    }
+  ],
+  "title": "Haushaltsdaten Bremen 2016-2018"
+}
